@@ -1,8 +1,10 @@
 void setup()
 {
 	int dots;
-	noLoop();
+	frameRate(20);
 	size(600, 600);
+	noStroke();
+
 }
 void draw()
 {
@@ -20,6 +22,7 @@ void draw()
 void mousePressed()
 {
 	redraw();
+	noLoop();
 }
 class Die //models one single dice cube
 {
@@ -30,9 +33,9 @@ class Die //models one single dice cube
 		myDots = (int)(Math.random()*6+1);
 		myX = x;
 		myY = y;
-		a = (int)(Math.random()*255);
-		b = (int)(Math.random()*255);
-		c = (int)(Math.random()*255);
+		a = (int)(Math.random()*255)+50;
+		b = (int)(Math.random()*255)+50;
+		c = (int)(Math.random()*255)+50;
 	}
 	
 	void roll()
@@ -45,7 +48,7 @@ class Die //models one single dice cube
 	{
 		fill(a,b,c);
 		rect(myX, myY, 50, 50,15);	
-		fill(c,b,a);
+		fill(b,c,a);
 		if(myDots == 1)
 		{
 			ellipse(myX+25, myY+25, 10, 10);
