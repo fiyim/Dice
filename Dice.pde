@@ -1,13 +1,15 @@
+int sum = 0;
 void setup()
 {
 	int dots;
-	frameRate(20);
-	size(600, 600);
+	size(600, 620);
 	noStroke();
+	frameRate(15);
 
 }
 void draw()
 {
+
 	background(216,183,120);
 	for(int y = 25 ; y <= 570 ; y +=55) 
 	{
@@ -15,15 +17,23 @@ void draw()
   		{
     		Die phuoc = new Die(x,y);
 			phuoc.show();
+			sum += phuoc.myDots;
   		}
 	}
+
+	textSize(15);
+	fill(75);
+	text("number of dots: " + sum, 200, 607);
 
 }
 void mousePressed()
 {
-	redraw();
 	noLoop();
+	redraw();
+	sum = 0;
+		
 }
+
 class Die //models one single dice cube
 {
 	//variable declarations here
@@ -37,11 +47,13 @@ class Die //models one single dice cube
 		b = (int)(Math.random()*255)+50;
 		c = (int)(Math.random()*255)+50;
 	}
+
 	
 	void roll()
 	{
-
+		
 	}
+
 	
 
 	void show()
