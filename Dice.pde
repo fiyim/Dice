@@ -1,10 +1,11 @@
 int sum = 0;
+int rate = 15;
 void setup()
 {
 	int dots;
 	size(600, 620);
 	noStroke();
-	frameRate(15);
+	frameRate(rate);
 
 }
 void draw()
@@ -28,6 +29,12 @@ void draw()
 }
 void mousePressed()
 {
+	rate = 15;
+	loop();
+	while (rate > 2)
+	{
+		rate--;
+	}
 	noLoop();
 	redraw();
 	sum = 0;
